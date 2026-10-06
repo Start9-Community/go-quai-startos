@@ -10,7 +10,7 @@ export const syncMethodSpec = InputSpec.of({
   method: Value.union({
     name: i18n('Sync Method'),
     description: i18n(
-      'How this node gets the Quai chain. A snapshot gets you mining in about a day but means trusting the snapshot. Syncing from genesis verifies everything yourself but takes weeks.',
+      'How this node gets the Quai chain.\n- Restore from snapshot: Mining in about a day, but you trust whoever made the snapshot.\n- Sync from genesis: You verify every block yourself, but it takes weeks.',
     ),
     default: 'snapshot',
     variants: Variants.of({

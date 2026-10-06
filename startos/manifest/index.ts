@@ -21,10 +21,10 @@ export const manifest = setupManifest({
         },
       },
       arch: ['x86_64'],
+      emulateMissing: false,
     },
   },
   hardwareRequirements: {
     ram: 16384,
   },
-  dependencies: {},
 })
