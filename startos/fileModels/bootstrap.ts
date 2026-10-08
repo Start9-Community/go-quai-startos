@@ -4,7 +4,7 @@ import { sdk } from '../sdk'
 // Written by bootstrap.sh while a snapshot restore runs.
 export const bootstrapStatus = FileHelper.json(
   { base: sdk.volumes.main, subpath: '/bootstrap/status.json' },
-  z.object({
+  z.looseObject({
     requestId: z.string().catch(''),
     phase: z.string().catch(''),
     done: z.number().catch(0),

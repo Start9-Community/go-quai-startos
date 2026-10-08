@@ -115,8 +115,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
     try {
       const res = await sub.exec(
         ['curl', '-s', '--max-time', '15', `http://127.0.0.1:${healthPort}/`],
-        {},
-        20_000,
+        { timeout: 20_000 },
       )
       const out = String(res.stdout ?? '')
       if (res.exitCode !== 0 || !out) return null

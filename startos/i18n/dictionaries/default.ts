@@ -30,14 +30,14 @@ const dict = {
 
   // actions/config.ts
   'Variable Difficulty': 23,
-  'Automatically tune each worker to about one share every 30 seconds. Miners can still force a value with d=<difficulty> in the password field.': 24,
+  'Automatically tune each worker to about one share every 30 seconds. A miner can still force a fixed difficulty by putting d= followed by the value in its password field.': 24,
   'Log Level': 25,
-  'At info, go-quai logs every block while syncing, which runs to gigabytes. Keep warn unless you are troubleshooting; info also logs each miner connecting to stratum.': 26,
+  '- error: Only errors.\n- warn: Errors and warnings. Keep this day to day.\n- info: Also every block while syncing, which runs to gigabytes, and each miner connecting to stratum. Use it while troubleshooting.\n- debug: More detail still. Turn it on only while chasing a specific problem, then switch back.': 26,
   'Saving restarts the node if it is running.': 27,
 
   // actions/syncMethod.ts
   'Sync Method': 28,
-  'How this node gets the Quai chain. A snapshot gets you mining in about a day but means trusting the snapshot. Syncing from genesis verifies everything yourself but takes weeks.': 29,
+  'How this node gets the Quai chain.\n- Restore from snapshot: Mining in about a day, but you trust whoever made the snapshot.\n- Sync from genesis: You verify every block yourself, but it takes weeks.': 29,
   'Restore from snapshot': 30,
   'Snapshot URL': 31,
   "A .tar.zst archive of go-quai chain data. Defaults to Quai's official mainnet snapshot.": 32,
