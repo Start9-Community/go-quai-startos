@@ -13,6 +13,7 @@ RUN go mod download && make go-quai
 
 FROM alpine:3.22
 RUN apk add --no-cache ca-certificates curl tar zstd
+# The base image's CA store is only as current as its last release.
 RUN apk upgrade --no-cache ca-certificates ca-certificates-bundle \
  && if [ -f /etc/ssl/certs/ca-certificates.crt.apk-new ]; then mv /etc/ssl/certs/ca-certificates.crt.apk-new /etc/ssl/certs/ca-certificates.crt; fi \
  && ! grep -q MIICTjCCAdOgAwIBAgIKPPYHqWhwDtqLhDAKBggqhkjOPQQDAzBr /etc/ssl/certs/ca-certificates.crt

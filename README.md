@@ -40,7 +40,9 @@ fee and holds no keys.
 ## Image and Container Runtime
 
 The image is built from source by this repository's `Dockerfile`, and two
-subcontainers run from it.
+subcontainers run from it. Its runtime stage upgrades the `alpine:3.22` base's
+CA store, a temporary layer that comes out once that base tag is rebuilt on a
+fixed store.
 
 | What          | Detail                                                           |
 | ------------- | ---------------------------------------------------------------- |
