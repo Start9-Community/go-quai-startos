@@ -1,4 +1,4 @@
-export const goQuaiVersion = 'v0.56.0'
+export const goQuaiVersion = 'v0.56.1'
 
 // Preferred external ports; 3333-3336 would collide with Public Pool.
 export const shaPort = 3301
