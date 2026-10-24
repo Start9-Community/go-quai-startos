@@ -1,6 +1,6 @@
 # go-quai for StartOS: built from a pinned upstream tag.
 # The tag is passed from startos/manifest/index.ts (images['go-quai'].source.dockerBuild.buildArgs).
-ARG GO_QUAI_VERSION=v0.56.0
+ARG GO_QUAI_VERSION=v0.56.1
 
 # Upstream's own Dockerfile uses golang:1.23, but go.mod declares `go 1.24`,
 # so build with 1.24 directly instead of relying on a toolchain download.
@@ -13,6 +13,10 @@ RUN go mod download && make go-quai
 
 FROM alpine:3.22
 RUN apk add --no-cache ca-certificates curl tar zstd
+# The base image's CA store is only as current as its last release.
+RUN apk upgrade --no-cache ca-certificates ca-certificates-bundle \
+ && if [ -f /etc/ssl/certs/ca-certificates.crt.apk-new ]; then mv /etc/ssl/certs/ca-certificates.crt.apk-new /etc/ssl/certs/ca-certificates.crt; fi \
+ && ! grep -q MIICTjCCAdOgAwIBAgIKPPYHqWhwDtqLhDAKBggqhkjOPQQDAzBr /etc/ssl/certs/ca-certificates.crt
 
 # go-quai reads VERSION and params/*.json relative to its working directory,
 # and writes ./nodelogs there too. Keep the binary's files together in
