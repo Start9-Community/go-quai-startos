@@ -75,9 +75,9 @@ export const main = sdk.setupMain(async ({ effects }) => {
 
     // Payout address, lock period and difficulty come from each miner's credentials.
     '--node.stratum-enabled=true',
-    `--node.stratum-sha-addr=0.0.0.0:${shaPort}`,
-    `--node.stratum-scrypt-addr=0.0.0.0:${scryptPort}`,
-    `--node.stratum-kawpow-addr=0.0.0.0:${kawpowPort}`,
+    `--node.stratum-sha-addr=[::]:${shaPort}`,
+    `--node.stratum-scrypt-addr=[::]:${scryptPort}`,
+    `--node.stratum-kawpow-addr=[::]:${kawpowPort}`,
     `--node.stratum-api-addr=0.0.0.0:${stratumApiPort}`,
     `--node.stratum-vardiff=${varDiff}`,
     '--node.stratum-name=startos',
