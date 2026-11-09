@@ -1,17 +1,16 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.56.1:0',
+  version: '0.56.1:1',
   releaseNotes: {
-    en_US:
-      '- Updated go-quai to v0.56.1.\n- Stops trusting certificates from a compromised certificate authority (eMudhra).',
+    en_US: "Miners can now connect over the server's IPv6 addresses.",
     es_ES:
-      '- go-quai actualizado a v0.56.1.\n- Deja de confiar en los certificados de una autoridad de certificación comprometida (eMudhra).',
+      'Los mineros ahora pueden conectarse a través de las direcciones IPv6 del servidor.',
     de_DE:
-      '- go-quai auf v0.56.1 aktualisiert.\n- Vertraut Zertifikaten einer kompromittierten Zertifizierungsstelle (eMudhra) nicht mehr.',
-    pl_PL:
-      '- Zaktualizowano go-quai do v0.56.1.\n- Przestaje ufać certyfikatom przejętego urzędu certyfikacji (eMudhra).',
-    fr_FR: `- go-quai mis à jour vers v0.56.1.\n- Ne fait plus confiance aux certificats d'une autorité de certification compromise (eMudhra).`,
+      'Miner können sich jetzt über die IPv6-Adressen des Servers verbinden.',
+    pl_PL: 'Koparki mogą teraz łączyć się przez adresy IPv6 serwera.',
+    fr_FR:
+      'Les mineurs peuvent désormais se connecter via les adresses IPv6 du serveur.',
   },
   migrations: {
     up: async ({ effects }) => {},
