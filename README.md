@@ -123,8 +123,10 @@ health check show the port actually in use.
 
 The stratum ports, the stats API and the RPC have no authentication.
 
-The P2P port accepts IPv4 only: go-quai listens on a single `/ip4/` libp2p
-address, so a peer dialing one of the interface's IPv6 addresses is refused.
+The P2P port listens on IPv4 only: go-quai builds its only libp2p listen address
+as `/ip4/<ipaddr>/tcp/<port>` (`p2p/node/node.go`). StartOS still lists the
+interface's IPv6 addresses, and connections to them are refused — use an IPv4
+address.
 
 Internal only: go-quai's `--rpc.health` endpoint on 8081, which the Chain Sync
 check reads, and the Prime and region RPC ports.
