@@ -1,16 +1,18 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.56.1:1',
+  version: '0.56.1:2',
   releaseNotes: {
-    en_US: "Miners can now connect over the server's IPv6 addresses.",
+    en_US:
+      'Packaging update: the go-quai source is checked against the exact release before it is built. Nothing changes in how the node runs.',
     es_ES:
-      'Los mineros ahora pueden conectarse a través de las direcciones IPv6 del servidor.',
+      'Actualización del empaquetado: el código fuente de go-quai se verifica contra la versión exacta antes de compilarse. No cambia nada en el funcionamiento del nodo.',
     de_DE:
-      'Miner können sich jetzt über die IPv6-Adressen des Servers verbinden.',
-    pl_PL: 'Koparki mogą teraz łączyć się przez adresy IPv6 serwera.',
+      'Paketierungs-Update: Der go-quai-Quellcode wird vor dem Bauen gegen die exakte Version geprüft. An der Funktionsweise des Knotens ändert sich nichts.',
+    pl_PL:
+      'Aktualizacja pakietu: kod źródłowy go-quai jest sprawdzany względem dokładnego wydania przed kompilacją. Działanie węzła się nie zmienia.',
     fr_FR:
-      'Les mineurs peuvent désormais se connecter via les adresses IPv6 du serveur.',
+      "Mise à jour de l'empaquetage : le code source de go-quai est vérifié par rapport à la version exacte avant d'être compilé. Rien ne change dans le fonctionnement du nœud.",
   },
   migrations: {
     up: async ({ effects }) => {},
