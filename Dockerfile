@@ -1,14 +1,18 @@
-# go-quai for StartOS: built from a pinned upstream tag.
+# go-quai for StartOS: built from a pinned upstream tag and its commit.
 # The tag is passed from startos/manifest/index.ts (images['go-quai'].source.dockerBuild.buildArgs).
 ARG GO_QUAI_VERSION=v0.56.1
+ARG GO_QUAI_COMMIT=5917bf5e2ced1d3f1cafdde6bc6fa3345fb71c3e
 
 # Upstream's own Dockerfile uses golang:1.23, but go.mod declares `go 1.24`,
 # so build with 1.24 directly instead of relying on a toolchain download.
 FROM golang:1.24-alpine AS builder
 ARG GO_QUAI_VERSION
+ARG GO_QUAI_COMMIT
 RUN apk add --no-cache git make gcc musl-dev
 WORKDIR /src
-RUN git clone --depth 1 --branch "${GO_QUAI_VERSION}" https://github.com/dominant-strategies/go-quai.git .
+RUN git -c advice.detachedHead=false clone --depth 1 --branch "${GO_QUAI_VERSION}" https://github.com/dominant-strategies/go-quai.git . \
+ && git checkout -q "${GO_QUAI_COMMIT}" \
+ && test "$(git rev-parse HEAD)" = "${GO_QUAI_COMMIT}"
 RUN go mod download && make go-quai
 
 FROM alpine:3.22

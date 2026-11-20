@@ -44,11 +44,11 @@ subcontainers run from it. Its runtime stage upgrades the `alpine:3.22` base's
 CA store, a temporary layer that comes out once that base tag is rebuilt on a
 fixed store.
 
-| What          | Detail                                                           |
-| ------------- | ---------------------------------------------------------------- |
-| Image source  | Custom Dockerfile: go-quai compiled from the pinned upstream tag |
-| Architectures | x86_64                                                           |
-| Entrypoint    | `docker_entrypoint.sh` (node), `bootstrap.sh` (snapshot restore) |
+| What          | Detail                                                                      |
+| ------------- | --------------------------------------------------------------------------- |
+| Image source  | Custom Dockerfile: go-quai compiled from the pinned upstream tag and commit |
+| Architectures | x86_64                                                                      |
+| Entrypoint    | `docker_entrypoint.sh` (node), `bootstrap.sh` (snapshot restore)            |
 
 | Subcontainer | Runs                                                                                |
 | ------------ | ----------------------------------------------------------------------------------- |
